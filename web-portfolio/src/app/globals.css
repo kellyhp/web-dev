@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, 
+body,
+#root,
+.app {
+    height: 100%;
+    background-color: #FFFBF3;
+    @apply text-black;
+}
+
+
+
+.upload-button {
+    height: 100%;
+	  width: 100%; 
+	  display: grid;
+	  place-items: center center;      
+}
+
+	  .wrapper {
+	    position: relative;
+	    height: 4rem;
+	    width: 11rem;
+	    overflow: hidden;
+	    cursor: pointer;
+}
+
+	    .container {
+	      position: absolute;
+	      left: 0;
+	      height: 100%;
+	      width: 100%;
+	
+	      border-radius: 8px;
+	      display: flex;
+	      justify-content: space-between;
+	      align-items: center;
+	      font-size: 1.3rem;
+	      padding: 0 2rem;
+	      overflow: hidden;
+	
+        }
+	      .upload {
+            position: absolute;
+	      left: 0;
+	      height: 100%;
+	      width: 100%;
+	
+	      border-radius: 8px;
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	      font-size: 1.3rem;
+	      padding: 0 2rem;
+	      overflow: hidden;
+	      background: #317256;
+	      color: white;
+	        z-index: 1;
+	        top: 0;
+	      }
+	
+	      .loading {
+            position: absolute;
+	      left: 0;
+	      height: 100%;
+	      width: 100%;
+	
+	      border-radius: 8px;
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	      font-size: 1.3rem;
+	      padding: 0 2rem;
+	      overflow: hidden;
+	        background: #317256;
+	        color: white;
+	        z-index: 2;
+	        top: -100%;
+	        position: relative;
+          }
+	        .loader {
+	          height: 1.5rem;
+	          width: 1.5rem;
+	          border: transparent solid 3px;
+	          border-top: white solid 3px;
+	          border-radius: 50%;
+	        }
+	
+	        .loading-bar {
+	          position: absolute;
+	          top: calc(100% - 3px);
+	          left: 0;
+	          width: 0%;
+	          height: 3px;
+	          background: white;
+	        }
+
+	
+	      .done {
+            position: aßbsolute;
+	      left: 0;
+	      height: 100%;
+	      width: 100%;
+	
+	      border-radius: 8px;
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	      font-size: 1.3rem;
+	      padding: 0 2rem;
+	      overflow: hidden;
+	        background: #010026;
+	        color: white;
+	        z-index: 3;
+	        top: -100%;
+	      }
+
+
+        .button {
+  color: #317256;
+  background-color: white;
+  text-decoration: none;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: inherit;
+  border-radius: 0.375rem; /* 3px */
+  border: 2px solid #317256;
+  padding: 1rem 2rem;
+  box-shadow: 
+    0.9px 1px 0 0 rgba(49, 114, 86, 0.7), 
+    1.5px 2px 0 0 rgba(49, 114, 86, 0.7), 
+    2.5px 3px 0 0 rgba(49, 114, 86, 0.7),
+    3.5px 4px 0 0 rgba(49, 114, 86, 0.7), 
+    4.5px 5px 0 0 rgba(49, 114, 86, 0.7), 
+    5.5px 6px 0 0 rgba(49, 114, 86, 0.7),
+    6.5px 7px 0 0 rgba(49, 114, 86, 0.7), 
+    7.5px 8px 0 0 rgba(49, 114, 86, 0.7), 
+    8.5px 9px 0 0 rgba(49, 114, 86, 0.7),
+    9.5px 10px 0 0 rgba(49, 114, 86, 0.7);
+  position: relative;
+  inset: 0;
+  z-index: 0;
+  cursor: pointer;
+  transform: rotateX(0) rotateY(0) rotateZ(0);
+  display: inline-block;
+  outline: 2px dashed transparent;
+  transition: all 300ms ease;
+}
+
+.button:hover {
+  inset: 0.375rem 0 0.344rem 0; /* 6px 0 5.5px 0 */
+  transform: rotateX(5deg) rotateY(3deg) rotateZ(0.25deg);
+  box-shadow: none;
+}
