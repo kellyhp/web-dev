@@ -7,26 +7,25 @@ const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Update isVisible state after a delay or based on some condition
     const timeout = setTimeout(() => {
       setIsVisible(true);
-    }, 500); // Example: Start animation after 1 second
+    }, 500); 
 
-    // Cleanup timeout
+  
     return () => clearTimeout(timeout);
-  }, []); // Run once on component mount
+  }, []); 
 
   const experienceAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
-    y: isVisible ? 0 : -40, // Start from -50 and animate to 0
+    y: isVisible ? 0 : -40, 
     config: { duration: 500 }
   });
 
   return (
-    <div className="mt-[100px] flex justify-center items-center w-full mx-auto">
+    <div className="mt-[100px] flex justify-center items-center w-full mx-auto ">
       {/* Experience details */}
       <animated.div
-        className="w-5/6 mx-auto text-center relative"
+        className="w-5/6 mx-auto text-center relative "
         style={{ ...experienceAnimation, top: isVisible ? 0 : -50 }}
       >
         <div>
@@ -39,13 +38,13 @@ const Experience = () => {
         {/* First experience */}
         <div className="mt-8 flex md:flex-row flex-col justify-center items-center">
           <div className="md:w-1/3 w-full md:mb-0 mb-5 flex flex-col items-center">
-            <p className="font-poppins font-normal text-lg">MAY 2023 - AUGUST 2023</p>
-            <span className="font-dmserifdisplay font-bold md:text-2xl text-lg">Codology</span>
+            <p className="font-poppins font-normal text-lg ">MAY 2023 - AUGUST 2023</p>
+            <span className="font-dmserifdisplay font-bold md:text-2xl text-lg ">Codology</span>
             <span className="font-dmserifdisplay font-semibold md:text-2xl text-lg">Software Developer Intern</span>
           </div>
           <div className="md:w-2/3 w-full ml-4 px-5">
-            <p className="font-poppins">
-              Software: MongoDB, NodeJS, Express.js, HTML/CSS <br/>
+            <p className="font-poppins ">
+              <span className="font-semibold">Software: MongoDB, NodeJS, Express.js, HTML/CSS </span><br/>
               Weekly stand up meetings to analyze project specifications and designing database schemas and API endpoints <br/>
               Implement robust authentication and authorization mechanisms such as JSON web tokens for user sessions and permissions along with password hashing to encrypt user passwords stored in the database <br/>
               Leveraged RESTful API principles to implement endpoints for handling file uploads, ensuring compatibility with various video formats and sizes <br/>
@@ -55,15 +54,15 @@ const Experience = () => {
         </div>
 
         {/* Second experience */}
-        <div className="mt-8 flex md:flex-row flex-col justify-center items-center">
+        <div className="mt-8 flex md:flex-row flex-col justify-center items-center ">
           <div className="md:w-1/3 w-full flex flex-col items-center md:mb-0 mb-5">
-            <p className="font-poppins font-normal text-lg">OCTOBER 2023 - JANURARY 2024</p>
-            <span className="font-dmserifdisplay font-bold md:text-2xl text-lg">Feastech Data Corp</span>
-            <span className="font-dmserifdisplay font-semibold md:text-2xl text-lg">Fullstack Developer Intern</span>
+            <p className="font-poppins font-normal text-lg ">OCTOBER 2023 - JANURARY 2024</p>
+            <span className="font-dmserifdisplay font-bold md:text-2xl text-lg ">Feastech Data Corp</span>
+            <span className="font-dmserifdisplay font-semibold md:text-2xl text-lg ">Fullstack Developer Intern</span>
           </div>
           <div className="md:w-2/3 w-full ml-4 px-5">
-            <p className="font-poppins">
-              Software: Azure, SQL, Java, ChatGPT API, Figma <br/>
+            <p className="font-poppins ">
+              <span className="font-semibold">Software: Azure, SQL, Java, ChatGPT API, Figma</span> <br/>
               Designed a service-oriented architecture to improve fault tolerance and maintainability for risk assessments <br/>
               Developed MySQL database to handle data creation, updating, and deletion operations on risk assessments <br/>
               Integrated ChatGPT as a virtual assistant to develop risk assessments for companies within the application and encapsulated the logic with handling request and responses with clean code <br/>
@@ -87,7 +86,7 @@ const Experience = () => {
           className="flex justify-center pt-5 pb-5 font-poppins font-semibold"
           style={{ opacity: experienceAnimation.opacity }}
         >
-          Check out my resume below!
+          <p className="bg-white">Check out my resume below!</p>
         </animated.p>
         <div className="mb-5">
             <UploadButton />

@@ -1,124 +1,133 @@
-import React, { useState, useEffect } from "react";
-import useMediaQuery from "../_hooks/useMediaQuery";
-import { useInView } from 'react-intersection-observer';
+import React, { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
-import Image from "next/image";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
+
+const StickyScroll = ({ content }) => {
+  const [activeCard, setActiveCard] = useState(0);
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    container: ref,
+    offset: ["start start", "end start"],
+  });
+  const cardLength = content.length;
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const cardsBreakpoints = content.map((_, index) => index / cardLength);
+    cardsBreakpoints.forEach((breakpoint, index) => {
+      if (latest > breakpoint - 0.2 && latest <= breakpoint) {
+        setActiveCard(index);
+      }
+    });
+  });
+
+  const backgroundColors = [
+    "#317256",
+  ];
+  const linearGradients = [
+    "linear-gradient(to bottom right, var(--cyan-500), var(--amber-500))",
+    "linear-gradient(to bottom right, var(--amber-500), var(--violet-500))",
+    "linear-gradient(to bottom right, var(--violet-500), var(--rose-500))",
+  ];
+
+  return (
+    <motion.div
+      animate={{
+        backgroundColor:
+          backgroundColors[activeCard % backgroundColors.length],
+      }}
+      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
+      ref={ref}
+    >
+      <div className="div relative flex items-start px-4">
+        <div className="max-w-2xl">
+          {content.map((item, index) => (
+            <div key={item.title + index} className="my-20">
+              <motion.h2
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.3,
+                }}
+                className="text-2xl font-bold text-white"
+              >
+                {item.title}
+              </motion.h2>
+              <motion.p
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.3,
+                }}
+                className="text-kg text-white max-w-sm mt-10"
+              >
+                {item.description}
+              </motion.p>
+            </div>
+          ))}
+          <div className="h-20" />
+        </div>
+      </div>
+      <motion.div
+        animate={{
+          background:
+            linearGradients[activeCard % linearGradients.length],
+        }}
+        className="hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden"
+      ></motion.div>
+    </motion.div>
+  );
+};
 
 const Framework = () => {
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5
-  });
   const [isVisible, setIsVisible] = useState(false);
 
-  // Use useEffect to control the animation visibility
+  
   useEffect(() => {
-    // Set isVisible to true after a delay of 500 milliseconds
     const timeout = setTimeout(() => {
       setIsVisible(true);
     }, 500);
 
-    // Clear the timeout to avoid memory leaks
     return () => clearTimeout(timeout);
-  }, []); // Run once on component mount
+  }, []); 
 
-  // Define animations for header and image
   const headerAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? 'translateY(0)' : 'translateY(-50px)',
     config: { duration: 500 }
   });
 
-  const imageAnimation = useSpring({
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
-    config: { duration: 500 }
-  });
-
   const skillsAnimation = useSpring({
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
-    config: { duration: 500 }
+    config: { duration: 700 }
   });
 
+  const content = [
+    {
+      title: "Empathize",
+      description: " By empathizing with the individuals who will ultimately interact with my creations, I gain invaluable insights that inform every aspect of the design and development process. Through user research methodologies, I uncover valuable insights that shape the direction of the project."
+    },
+    {
+      title: "Ideate",
+      description: " Collaborating with my team or immersing myself in solitary brainstorming sessions, I explore diverse concepts and possibilities to address the identified user requirements. Sketching wireframes, creating prototypes, and visualizing concepts allow me to breathe life into ideas."
+    },
+    {
+      title: "Iterate",
+      description: " Each iteration brings me closer to achieving the optimal user experience, as I analyze feedback, identify areas for enhancement, and implement changes iteratively. Through multiple cycles of refinement, I ensure that my solutions are not just good but exceptional, delivering value and delight to users."
+    }
+  ];
+
   return (
-    <section id="skills" className="mt-0 mb-20 bg-black p-16">
-      {/* HEADER AND IMAGE SECTION */}
-      <div className="md:flex md:justify-between md:gap-16 mt-32">
-        <animated.div
-          className="md:w-1/3"
-          style={headerAnimation}
-        >
+    <section id="software-framework" className="mt-0 mb-20 bg-black p-16">
+      <div className="md:flex md:justify-between md:gap-16 mt-32 flex-col">
+        <animated.div style={headerAnimation}>
           <p className="font-dmserifdisplay font-semibold text-4xl  mb-5 text-white">
             My Methodology
           </p>
-
-        </animated.div>
-
-      </div>
-
-      {/* SKILLS */}
-      <div className="md:flex md:justify-between mt-16 gap-32">
-        {/* EXPERIENCE */}
-        <animated.div
-          className="md:w-1/3 mt-10"
-          style={skillsAnimation}
-        >
-          <div className="relative h-32">
-            <div className="z-10">
-              <p className="font-dmserifdisplay font-semibold text-5xl text-white">01</p>
-              <p className="font-dmserifdisplay font-semibold text-3xl mt-3 text-white">
-                Empathize
-              </p>
-            </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-brown absolute right-0 top-0 z-[-1]" />
-          </div>
-          <p className="mt-5 font-poppins text-white">
-          By empathizing with the individuals who will ultimately interact with my creations, I gain invaluable insights that 
-          inform every aspect of the design and development process. Through user research methodologies, I uncover valuable insights that shape the direction of the project.
-          </p>
-        </animated.div>
-
-        {/* INNOVATIVE */}
-        <animated.div
-          className="md:w-1/3 mt-10"
-          style={skillsAnimation}
-        >
-          <div className="relative h-32">
-            <div className="z-10">
-              <p className="font-dmserifdisplay font-semibold text-5xl text-white">02</p>
-              <p className="font-dmserifdisplay font-semibold text-3xl mt-3 text-white">
-                Ideate
-              </p>
-            </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-light-green absolute right-0 top-0 z-[-1]" />
-          </div>
-          <p className="mt-5 font-poppins text-white">
-          Collaborating with my team or immersing myself in solitary brainstorming sessions, I explore diverse concepts and possibilities 
-          to address the identified user requirements. Sketching wireframes, creating prototypes, and visualizing concepts allow me to breathe 
-          life into ideas.
-          </p>
-        </animated.div>
-        {/* IMAGINATIVE */}
-        <animated.div
-          className="md:w-1/3 mt-10"
-          style={skillsAnimation}
-        >
-          <div className="relative h-32">
-            <div className="z-10">
-              <p className="font-dmserifdisplay font-semibold text-5xl text-white">03</p>
-              <p className="font-dmserifdisplay font-semibold text-3xl mt-3 text-white">
-                Iterate
-              </p>
-            </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-yellow absolute right-0 top-0 z-[-1]" />
-          </div>
-          <p className="mt-5 font-poppins text-white">
-          Each iteration brings me closer to achieving the optimal user experience, as I analyze feedback, 
-          identify areas for enhancement, and implement changes iteratively. Through multiple cycles of refinement, I ensure that my solutions 
-          are not just good but exceptional, delivering value and delight to users.
-          </p>
+          <animated.div style={skillsAnimation}> <StickyScroll content={content} /></animated.div>
         </animated.div>
       </div>
     </section>

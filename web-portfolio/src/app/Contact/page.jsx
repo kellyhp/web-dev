@@ -39,7 +39,7 @@ const Contact = () => {
   });
 
   return (
-    <div className="flex justify-center items-center w-5/6 md:mx-0 mx-auto">
+    <div className="flex justify-center items-center w-5/6 md:mx-0 mx-auto h-screen">
       <section id="contact" className="contact md:py-48 py-10">
         {/* HEADINGS */}
         <animated.div
@@ -57,10 +57,10 @@ const Contact = () => {
           >
             <div className="flex flex-col justify-center md:items-start items-center md:mt-0">
             <InterestedSVG/>
-            <div className="font-poppins text-lg">
+            <div className="font-poppins text-lg ">
                 Interested in working with me?
             </div>
-            <div className="font-poppins text-lg">
+            <div className="font-poppins text-lg ">
                 Email:{" "}
                 <a
                   href="mailto:khphan@ucdavis.edu"
@@ -84,7 +84,7 @@ const Contact = () => {
               method="POST"
             >
                 
-              <label htmlFor="name" className="text-black font-poppins">
+              <label htmlFor="name" className="text-black font-poppins ">
                 Name
               </label>
               <input
@@ -106,7 +106,7 @@ const Contact = () => {
                 </p>
               )}
 
-              <label htmlFor="email" className="text-black mt-5 font-poppins">
+              <label htmlFor="email" className="text-black mt-5 font-poppins ">
                 Email
               </label>
               <input
@@ -127,7 +127,7 @@ const Contact = () => {
                 </p>
               )}
 
-              <label htmlFor="message" className="text-black font-poppins mt-5">
+              <label htmlFor="message" className="text-black font-poppins mt-5 bg-white">
                 Message
               </label>
               <textarea
