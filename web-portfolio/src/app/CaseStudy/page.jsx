@@ -6,7 +6,7 @@ import Image from "next/image";
 import UIUXFramework from "../_component/UIUXFramework";
 import { cn } from "../../../util/cn";
 
-export const BentoGrid = ({ className, children }) => {
+const BentoGrid = ({ className, children }) => {
   return (
     <div
       className={cn(
@@ -19,7 +19,7 @@ export const BentoGrid = ({ className, children }) => {
   );
 };
 
-export const BentoGridItem = ({ className, title, description, onClick }) => {
+const BentoGridItem = ({ className, title, description, onClick }) => {
   const projectTitle = title.split(" ").join("-").toLowerCase();
   return (
     <div
