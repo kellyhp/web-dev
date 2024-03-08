@@ -49,7 +49,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col justify-center align-middle h-full w-full mx-auto">
+    <div className="flex flex-col justify-center align-middle h-screen w-full mx-auto">
         <div className="w-full mx-auto md:flex md:justify-center md:items-center md:h-full gap-16 md:py-10 py-0">
           <div className="basis-1/2 mt-12 md:mt-32 md:order-1 mx-auto">
             {/* HEADINGS */}

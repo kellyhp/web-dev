@@ -22,7 +22,7 @@ const Experience = () => {
   });
 
   return (
-    <div className="mt-[100px] flex justify-center items-center w-full mx-auto ">
+    <div className="mt-[70px] flex justify-center items-center w-full mx-auto h-screen">
       {/* Experience details */}
       <animated.div
         className="w-5/6 mx-auto text-center relative "
