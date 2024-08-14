@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const LinkTrail = ({ open, links }) => {
   const trail = useTrail(links.length, {
-    config: { mass: 5, tension: 1500, friction: 200 },
+    config: { mass: 10, tension: 800, friction: 100 },
     opacity: open ? 1 : 0,
     x: open ? 0 : 40,
     from: { opacity: 0, x: 40 },
@@ -36,7 +36,7 @@ export default function Home() {
   const contentAnimation = useSpring({
     opacity: showContent ? 1 : 0,
     transform: showContent ? 'translateY(0)' : 'translateY(-100px)',
-    config: { duration: 500 },
+    config: { duration: 700 },
   });
 
   const [open, setOpen] = useState(true);
@@ -44,14 +44,14 @@ export default function Home() {
     { text: 'About Me', href: '/AboutMe' },
     { text: 'My Experience', href: '/Experience' }, 
     { text: 'Projects', href: '/Projects' },
-    { text: 'UI/UX Case Studies', href: '/CaseStudy' },
+    { text: 'UI/UX Projects', href: '/CaseStudy' },
     { text: 'Contact', href: '/Contact' },
   ];
 
   return (
-    <div className="flex flex-col justify-center align-middle h-screen w-full mx-auto">
+    <div className="flex flex-col justify-center align-middle h-full md:h-screen w-full mx-auto">
         <div className="w-full mx-auto md:flex md:justify-center md:items-center md:h-full gap-16 md:py-10 py-0">
-          <div className="basis-1/2 mt-12 md:mt-32 md:order-1 mx-auto">
+          <div className="basis-1/2 mt-12 md:mt-16 md:order-1 mx-auto">
             {/* HEADINGS */}
             <animated.div style={contentAnimation}>
               <div className="flex items-center justify-center">
@@ -64,10 +64,10 @@ export default function Home() {
               </button>
               </div>
             <div className="flex items-center align-center flex-col">
-              <p className="text-5xl font-dmserifdisplay text-center md:text-start md:mr-20 ">
+              <p className="text-5xl font-satoshi font-satoshi text-center md:text-start md:mr-20 ">
                 Kelly Phan
               </p>
-              <p className="mt-10 mb-7 text-sm text-center md:text-start font-poppins max-w-[300px] ">
+              <p className="mt-10 mb-7 text-sm text-center md:text-start font-satoshi max-w-[300px] ">
                 Currently an undergraduate at UC Davis / Computer Science Major /
                 Technology Management Minor <br /> <br /> Full Stack / User
                 Experience Design / Project Management / Web Development
@@ -78,7 +78,7 @@ export default function Home() {
           </div>
           {/* LINK SECTION */}
           <div className="md:order-2 flex justify-center md:basis-1/2 z-10 mt-0 md:mt-32 py-10 md:items-start items-center">
-            <div className="flex flex-col font-dmserifdisplay ml-5 md:text-start text-center">
+            <div className="flex flex-col font-satoshi font-medium ml-5 md:text-start text-center">
               <LinkTrail open={open} links={links} />
             </div>
           </div>

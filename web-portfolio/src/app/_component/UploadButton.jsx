@@ -63,7 +63,7 @@ const UploadButton = () => {
             style={iconVariants}
           />
           <div>
-            <a href={resumeFile} download="KellyPhan_Resume_2024.pdf" target="_blank" rel="noopener noreferrer">my resume</a>
+            <a className="font-satoshi" href={resumeFile} download="KellyPhan_Resume_2024.pdf" target="_blank" rel="noopener noreferrer">my resume</a>
           </div>
         </animated.div>
 
@@ -73,11 +73,11 @@ const UploadButton = () => {
         >
           <animated.div style={loaderControls} />
           <div>loading</div>
-          <animated.div className="loading-bar" style={loadingBarControls} />
+          <animated.div className="loading-bar font-satoshi" style={loadingBarControls} />
         </animated.div>
         
         <animated.div  
-          className="done"
+          className="done font-satoshi"
           style={doneControls}
         >
           <div> done</div>

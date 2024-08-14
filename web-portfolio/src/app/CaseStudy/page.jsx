@@ -32,15 +32,17 @@ const BentoGridItem = ({ className, title, description, onClick }) => {
       <div className="group-hover/bento:translate-x-1 transition duration-200 cursor-pointer">
         <div className="relative w-full h-full min-h-[rem] overflow-hidden rounded-lg">
           <Image
-            className="object-cover w-full h-full max-h-[450px]"
+            className="rounded-lg object-cover w-full h-full max-h-[450px] transition duration-300 transform group-hover/bento:scale-95 group-hover/bento:saturate-200"
             src={require(`../../../public/assets/${projectTitle}.jpeg`).default}
             alt={projectTitle}
           />
         </div>
-        <div className="font-poppins font-bold text-white dark:text-white mb-2 mt-2 truncate">
-          {title}
+        <div className="text-xl font-satoshi font-bold text-white dark:text-white mb-2 mt-2 truncate relative">
+          <span className="relative after:content-[''] after:absolute after:z-[-1] after:left-0 after:bottom-[0px] after:bg-green after:h-[8px] after:w-0 group-hover/bento:after:w-full after:transition-all after:rounded-xs after:duration-300">
+            {title}
+          </span>
         </div>
-        <div className="font-poppins font-normal text-white text-sm dark:text-white overflow-hidden">
+        <div className="font-satoshi font-normal text-white text-sm dark:text-white overflow-hidden">
           {description}
         </div>
       </div>
@@ -95,17 +97,17 @@ const Project = () => {
       {/* HEADINGS */}
       <animated.div
         ref={ref}
-        className="md:w-2/5 mx-auto text-center"
+        className="mx-auto text-center"
         style={titleAnimation}
       >
         <div>
-          <p className="font-dmserifdisplay font-semibold text-4xl text-orange ">
+          <p className="text-left font-satoshi font-semibold md:text-4xl text-2xl text-orange ">
             Projects
           </p>
           <div className="flex justify-center mt-5">
           </div>
         </div>
-        <p className="mt-10 mb-10 font-poppins">
+        <p className="mt-10 mb-10 font-satoshi text-left">
           Merging creativity with user-focused design, delivering seamless interfaces that elevate user experiences
         </p>
       </animated.div>

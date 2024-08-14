@@ -124,10 +124,10 @@ const Framework = () => {
     <section id="software-framework" className="mt-0 mb-20 bg-black p-16">
       <div className="md:flex md:justify-between md:gap-16 mt-32 flex-col">
         <animated.div style={headerAnimation}>
-          <p className="font-dmserifdisplay font-semibold text-4xl  mb-5 text-white">
+          <p className="font-satoshi font-semibold text-4xl  mb-5 text-white">
             My Methodology
           </p>
-          <animated.div style={skillsAnimation}> <StickyScroll content={content} /></animated.div>
+          <animated.div className="font-satoshi" style={skillsAnimation}> <StickyScroll content={content} /></animated.div>
         </animated.div>
       </div>
     </section>

@@ -16,10 +16,11 @@ module.exports = {
         "deep-blue" : "#010026",
         "dark-grey" : "#757575",
         "opaque-black" : "rgba(0,0,0,0.35)",
-        white: "#FFFBF3",
+        white: "#faf7f7",
         orange: "#e35400",
         brown: "#745e4f",
         "light-green": "#32927a",
+        black: "#0d0d0d",
       },
       backgroundImage: (theme) => ({
         "gradient-rainbow":
@@ -31,6 +32,7 @@ module.exports = {
       fontFamily: {
         dmserifdisplay: ["DM Serif Display", "serif"],
         poppins: ["Montserrat", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
       },
       boxShadow: {
         'custom': '0.9px 1px 0 0 rgba(49, 114, 86, 1), 1.5px 2px 0 0 rgba(49, 114, 86, 1), 2.5px 3px 0 0 rgba(49, 114, 86, 1), 3.5px 4px 0 0 rgba(49, 114, 86, 1), 4.5px 5px 0 0 rgba(49, 114, 86, 1), 5.5px 6px 0 0 rgba(49, 114, 86, 1), 6.5px 7px 0 0 rgba(49, 114, 86, 1), 7.5px 8px 0 0 rgba(49, 114, 86, 1), 8.5px 9px 0 0 rgba(49, 114, 86, 1), 9.5px 10px 0 0 rgba(49, 114, 86, 1)',

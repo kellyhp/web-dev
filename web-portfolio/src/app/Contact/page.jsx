@@ -39,8 +39,8 @@ const Contact = () => {
   });
 
   return (
-    <div className="flex justify-center items-center w-5/6 md:mx-0 mx-auto h-screen">
-      <section id="contact" className="contact md:py-48 py-10">
+    <div className="flex justify-center items-center w-5/6 md:mx-0 mx-auto h-full md:h-screen">
+      <section id="contact" className="contact md:py-48 py-10 md:mt-0 mt-[20px]">
         {/* HEADINGS */}
         <animated.div
           ref={ref}
@@ -57,10 +57,10 @@ const Contact = () => {
           >
             <div className="flex flex-col justify-center md:items-start items-center md:mt-0">
             <InterestedSVG/>
-            <div className="font-poppins text-lg ">
+            <div className="font-satoshi text-lg ">
                 Interested in working with me?
             </div>
-            <div className="font-poppins text-lg ">
+            <div className="font-satoshi text-lg ">
                 Email:{" "}
                 <a
                   href="mailto:khphan@ucdavis.edu"
@@ -84,7 +84,7 @@ const Contact = () => {
               method="POST"
             >
                 
-              <label htmlFor="name" className="text-black font-poppins ">
+              <label htmlFor="name" className="text-black font-satoshi ">
                 Name
               </label>
               <input
@@ -106,7 +106,7 @@ const Contact = () => {
                 </p>
               )}
 
-              <label htmlFor="email" className="text-black mt-5 font-poppins ">
+              <label htmlFor="email" className="text-black mt-5 font-satoshi ">
                 Email
               </label>
               <input
@@ -127,7 +127,7 @@ const Contact = () => {
                 </p>
               )}
 
-              <label htmlFor="message" className="text-black font-poppins mt-5 bg-white">
+              <label htmlFor="message" className="text-black font-satoshi mt-5 bg-white">
                 Message
               </label>
               <textarea
@@ -152,7 +152,7 @@ const Contact = () => {
               )}
 
               <button
-                className="button mt-5"
+                className="button mt-5 font-satoshi"
                 type="submit"
               >
                 SEND ME A MESSAGE

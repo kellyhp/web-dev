@@ -19,7 +19,15 @@ const BentoGrid = ({ className, children }) => {
   );
 };
 
-const BentoGridItem = ({ className, title, description, onClick }) => {
+const Tag = ({ keyword }) => {
+  return (
+    <span className="bg-green text-white text-sm font-satoshi px-2 py-1 rounded-md m-1">
+      {keyword}
+    </span>
+  );
+};
+
+const BentoGridItem = ({ className, title, description, tags = [], onClick }) => {
   const projectTitle = title.split(" ").join("-").toLowerCase();
   return (
     <div
@@ -32,17 +40,26 @@ const BentoGridItem = ({ className, title, description, onClick }) => {
       <div className="group-hover/bento:translate-x-1 transition duration-200 cursor-pointer">
         <div className="relative w-full h-full min-h-[rem] overflow-hidden rounded-lg">
           <Image
-            className="object-cover w-full h-full max-h-[450px]"
+            className="rounded-lg object-cover w-full h-full max-h-[450px] transition duration-300 transform group-hover/bento:scale-95 group-hover/bento:saturate-200"
             src={require(`../../../public/assets/${projectTitle}.jpeg`).default}
             alt={projectTitle}
           />
         </div>
-        <div className="font-poppins font-bold text-white dark:text-white mb-2 mt-2 truncate">
-          {title}
+        <div className="text-xl font-satoshi font-bold text-white dark:text-white mb-2 mt-2 truncate relative">
+          <span className="relative after:content-[''] after:absolute after:z-[-1] after:left-0 after:bottom-[0px] after:bg-green after:h-[8px] after:w-0 group-hover/bento:after:w-full after:transition-all after:rounded-xs after:duration-300">
+            {title}
+          </span>
         </div>
-        <div className="font-poppins font-normal text-white text-sm dark:text-white overflow-hidden">
+        <div className="font-satoshi font-normal text-white text-sm dark:text-white overflow-hidden">
           {description}
         </div>
+        {tags.length > 0 && (
+          <div className="flex flex-wrap mt-2">
+            {tags.map((tag, index) => (
+              <Tag key={index} keyword={tag} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -68,35 +85,47 @@ const Projects = () => {
 
   const items = [
     {
-      url: "https://github.com/kellyhp/cookbook",
-      title: "Cookbook",
-      description: "This project is a react app of a cookbook website consisting of multiple cuisines with recipes included. It is a front-end application that utilizes 'react-router-dom' for routing and reusable cards."
-    },
-    {
       url: "https://github.com/kellyhp/weather_app",
       title: "Weather App",
-      description: "This project is a react application of a weather app taken from https://openweathermap.org's API. This weather app uses React useState for state management, react-icons for styling, moment for parsing data objects, and environment variables."
+      description: "This project is a react application of a weather app taken from Openweathermap's API. This weather app uses React useState for state management, react-icons for styling, moment for parsing data objects, and environment variables.",
+      tags: ['React', 'Javascript']
     },
     {
       url: "https://medium.com/@kellyphan159/case-study-redesigning-boheme-threads-0adf336566ff",
       title: "Boheme",
-      description: "The thrift consignment store's web redesign aimed to boost exposure and user experience. The project included a clean, responsive design. Social media integration enhanced online marketing, creating a visually appealing and user-friendly website."
+      description: "The thrift consignment store's web redesign aimed to boost exposure and user experience. The project included a clean, responsive design. Social media integration enhanced online marketing, creating a visually appealing and user-friendly website.",
+      tags: ['HTML', 'CSS', 'jQuery','Figma']
     },
     {
       url: "https://github.com/kellyhp/moment/tree/main",
       title: "Film E-Commerce Website",
-      description: "Modern e-commerce store, enhancing the shopping journey through features like interactive maps, mobile friendliness, and intuitive product/category pages."
+      description: "Modern e-commerce store, enhancing the shopping journey through features like interactive maps, mobile friendliness, and intuitive product/category pages.",
+      tags: ['React', 'Javascript', 'Nextjs', 'GraphQL', 'Apollo Client', 'Leaflet']
     },
     {
       url: "https://devpost.com/software/smiskify?ref_content=my-projects-tab&ref_feature=my_projects",
       title: "Spotify Personality Visualizer",
-      description: "The web application uses the Spotify API to analyze your top songs of the last 6 months to determine what personality-based Smiski matches your music taste!"
+      description: "The web application uses the Spotify API to analyze your top songs of the last 6 months to determine what personality-based Smiski matches your music taste!",
+      tags: ['Python', 'Flask', 'Figma']
     },
     {
       url: "https://github.com/kellyhp/includeProject",
       title: "Expense Tracker",
-      description: "The expense tracker website combines mobile-friendly design with robust user authentication features, including login, account creation, and password recovery, while also providing insightful graphical representations of expenses."
+      description: "The expense tracker website combines mobile-friendly design with robust user authentication features, including login, account creation, and password recovery, while also providing insightful graphical representations of expenses.",
+      tags: ['React', 'Nextjs', 'Javascript', 'Firebase', 'MongoDB', 'Postman']
     },
+    {
+      url: "https://github.com/kellyhp/motor-vehicle-collisions",
+      title: "Motor Vehicle Collisions in NYC",
+      description: "This is an interactive dashboard designed to analyze and visualize motor vehicle collisions across New York City. The dashboard utilizes various data visualizations to provide insights into the frequency, locations, and causes of accidents.",
+      tags: ['Pythion', 'Steamlit', 'Pandas', 'Plotly', 'Pydeck']
+    },
+    {
+      url: "",
+      title:"Customer Overview Dashboard",
+      description: "This is an interactive dashboard to analyze and visualize the customer segments and target a specific group. This provides actionable insights to marketing teams by highlighting behavioral trends.",
+      tags: ['PowerBI', 'Excel']
+    }
   ];
 
   return (
@@ -105,17 +134,17 @@ const Projects = () => {
       {/* HEADINGS */}
       <animated.div
         ref={ref}
-        className="md:w-2/5 mx-auto text-center"
+        className="mx-auto text-center"
         style={titleAnimation}
       >
         <div>
-          <p className="font-dmserifdisplay font-semibold text-4xl text-orange ">
+          <p className="text-left font-satoshi font-semibold md:text-4xl text-2xl text-orange ">
             Projects
           </p>
           <div className="flex justify-center mt-5">
           </div>
         </div>
-        <p className="mt-10 mb-10 font-poppins">
+        <p className="mt-10 mb-10 font-satoshi text-left ">
           From conceptualization to execution, these projects reflect my passion for 
           building intuitive and impactful digital solutions.
         </p>
@@ -131,7 +160,12 @@ const Projects = () => {
                 key={index}
                 title={item.title}
                 description={item.description}
-                onClick={() => window.open(item.url, "_blank")}
+                tags={item.tags}
+                onClick={() => {
+                  if (item.url) {
+                    window.open(item.url, "_blank");
+                  }
+                }}
                 className={index === 3 || index === 6 ? "md:col-span-2" : ""} 
               />
             ))}
@@ -143,4 +177,3 @@ const Projects = () => {
 };
 
 export default Projects;
-

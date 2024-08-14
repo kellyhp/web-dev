@@ -16,7 +16,7 @@ const InterestedSVG = () => {
   return (
     <div>
       <animated.svg
-        className="w-48 h-48 text-green font-poppins"
+        className="w-48 h-48 text-green font-satoshi"
         style={{ scale, opacity }}
         viewBox="0 0 1278 446"
       >
