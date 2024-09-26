@@ -112,7 +112,7 @@ const Projects = () => {
       url: "https://github.com/kellyhp/motor-vehicle-collisions",
       title: "Motor Vehicle Collisions in NYC",
       description: "This is an interactive dashboard designed to analyze and visualize motor vehicle collisions across New York City. The dashboard utilizes various data visualizations to provide insights into the frequency, locations, and causes of accidents.",
-      tags: ['Pythion', 'Steamlit', 'Pandas', 'Plotly', 'Pydeck', 'Excel']
+      tags: ['Python', 'Steamlit', 'Pandas', 'Plotly', 'Pydeck', 'Excel']
     },
     {
       url: "https://github.com/kellyhp/alumni-frontend",
@@ -132,6 +132,12 @@ const Projects = () => {
       description: "This is an interactive dashboard to analyze and visualize the customer segments and target a specific group. This provides actionable insights to marketing teams by highlighting behavioral trends.",
       tags: ['PowerBI', 'Excel']
     },
+    {
+      url:"https://github.com/kellyhp/Laroche-Posay-Inventory-Management",
+      title:"Inventory Management",
+      description: "This project is a full-stack inventory management dashboard designed for managing La Roche-Posay products. It provides a comprehensive site for product management, data analysis, and user experience with dynamic pages, complex data handling, light/dark mode, and search functionality.",
+      tags: ['Typescript', 'Next.js', 'Tailwind', 'Redux', 'Node.js', 'Prisma', 'PostgreSQL', 'AWS'],
+    }
   ];
 
   return (

@@ -20,4 +20,11 @@ export const language = [
       image:
         "javascript.png",
     },
+    {
+      id: 4,
+      name: "Typescript",
+      designation: "",
+      image:
+        "typescript.png",
+    },
   ];

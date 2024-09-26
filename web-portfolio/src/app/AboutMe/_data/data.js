@@ -20,5 +20,11 @@ export const data = [
       image:
         "chartjs.jpg",
     },
+    {
+      id:4,
+      name: "Power BI",
+      designation: "",
+      image: "powerbi.webp",
+    }
   ];
   

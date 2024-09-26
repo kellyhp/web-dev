@@ -13,4 +13,10 @@ export const cloud = [
       image:
         "firebase.png",
     },
+    {
+      id: 3,
+      name: "AWS",
+      designation: "",
+      image:"aws.jpeg",
+    }
   ];

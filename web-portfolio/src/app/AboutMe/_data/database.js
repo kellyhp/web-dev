@@ -13,4 +13,16 @@ export const database = [
       image:
         "sql.jpeg",
     },
+    {
+      id: 3,
+      name: "Postresql",
+      designation: "",
+      image: "postresql.png"
+    },
+    {
+      id: 4,
+      name: "Prisma",
+      designation: "",
+      image: "prisma.webp"
+    }
   ];
